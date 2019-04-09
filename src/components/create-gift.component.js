@@ -53,7 +53,7 @@ export default class CreateGift extends Component {
             gift_completed: this.state.gift_completed
         }
 
-        axios.post('http://localhost:4000/gifts/add', newGift)
+        axios.post('/gifts/add', newGift)
             .then(res => console.log(res.data));
 
         this.setState ({
@@ -67,7 +67,7 @@ export default class CreateGift extends Component {
     render() {
         return (
             <div style={{marginTop: 20}}>
-                <h3> Add new gift</h3>
+                <marquee><h3> <span> 🎁</span> Add new gift <span>💨</span></h3></marquee>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label> description:</label>
@@ -92,10 +92,10 @@ export default class CreateGift extends Component {
                                     name="priorityOptions"
                                     id="priorityLow"
                                     value="low"
-                                    checked={this.state.gift_priority==='Low'}
+                                    checked={this.state.gift_priority==='low'}
                                     onChange={this.onChangeGiftPriority}
                                     />
-                            <label className='form-check-label'>Low</label>
+                            <label className='form-check-label'>low</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input"
@@ -106,7 +106,7 @@ export default class CreateGift extends Component {
                                     checked={this.state.gift_priority==='medium'}
                                     onChange={this.onChangeGiftPriority}
                                     />
-                            <label className='form-check-label'>Medium</label>
+                            <label className='form-check-label'>medium</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input"
@@ -114,10 +114,10 @@ export default class CreateGift extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="high"
-                                    checked={this.state.gift_priority==='High'}
+                                    checked={this.state.gift_priority==='high'}
                                     onChange={this.onChangeGiftPriority}
                                     />
-                            <label className='form-check-label'>High</label>
+                            <label className='form-check-label'>high</label>
                         </div>
                     </div>
                     <div className="form-group">

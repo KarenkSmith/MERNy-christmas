@@ -4,9 +4,9 @@ import axios from 'axios';
 
 const Gift = props => (
     <tr>
-        <td>{props.gift.gift_description}</td>
-        <td>{props.gift.gift_for}</td>
-        <td>{props.gift.gift_priority}</td>
+        <td className={props.gift.gift_completed ? 'completed' : ''}>{props.gift.gift_description}</td>
+        <td className={props.gift.gift_completed ? 'completed' : ''}>{props.gift.gift_for}</td>
+        <td className={props.gift.gift_completed ? 'completed' : ''}>{props.gift.gift_priority}</td>
         <td>
             <Link to={"/edit/"+props.gift._id}>edit</Link>
         </td>
@@ -21,13 +21,23 @@ export default class XmasList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/gifts')
+        axios.get('/gifts/')
             .then(response => {
                 this.setState({gifts: response.data});
             })
             .catch(function (error){
                 console.log(error)
             })
+    }
+
+    componentDidUpdate() {
+        axios.get('/gifts/')
+        .then(response => {
+            this.setState({gifts: response.data});
+        })
+        .catch(function (error){
+            console.log(error)
+        })
     }
 
     giftList() {
@@ -39,12 +49,12 @@ export default class XmasList extends Component {
     render() {
         return (
             <div>
-                <h3>Xmas List</h3>
+                <marquee><h3><span>🦌 </span><span>🦌 </span><span>🦌 </span> Xmas List <span>💨</span></h3></marquee>
                 <table className='table table-striped' style={{ marginTop: 20 }}>
                     <thead>
                         <tr>
                             <th>description</th>
-                            <th>responsible</th>
+                            <th>for</th>
                             <th>priority</th>
                             <th>actions</th>
                         </tr>
