@@ -15,7 +15,11 @@ let Gift = new Schema({
 
     gift_completed: {
         type: Boolean
-    }
+    },
+    
+    user_id: 
+        {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    
 });
 
 module.exports = mongoose.model('Gift', Gift);

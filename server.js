@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require('cors');
+const path = require('path');
 const mongoose = require('mongoose');
 const giftRoutes = express.Router();
 const PORT = 4000;
@@ -20,10 +21,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api/users', require('./routes/api/users'));
+app.use('/gifts', giftRoutes);
 
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+
 
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
@@ -82,9 +82,10 @@ giftRoutes.route('/update/:id').post(function(req, res){
     });
 });
 
-app.use('/gifts', giftRoutes);
 
-
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.listen(PORT, function() {
     console.log("working on 4000")

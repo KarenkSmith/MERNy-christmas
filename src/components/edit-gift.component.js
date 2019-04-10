@@ -19,7 +19,7 @@ export default class EditGift extends Component {
             gift_priority: '',
             gift_completed: false
         }
-}
+    }
 
     componentDidMount() {
         axios.get('/gifts/'+this.props.match.params.id)
@@ -28,7 +28,7 @@ export default class EditGift extends Component {
                 gift_description: response.data.gift_description, 
                 gift_for: response.data.gift_for, 
                 gift_priority: response.data.gift_priority, 
-                gift_completed: response.data.gift_completed, 
+                gift_completed: response.data.gift_completed
             })
         })
         .catch(function(error){
@@ -66,12 +66,19 @@ export default class EditGift extends Component {
             gift_description: this.state.gift_description,
             gift_for: this.state.gift_for,
             gift_priority: this.state.gift_priority,
-            gift_completed: this.state.gift_completed
+            gift_completed: this.state.gift_completed,
+            // user_id: this.props.user._id
         };
-        axios.post('/gifts/'+this.props.match.params.id, object)
-            .then(res => console.log(res.data));
+        // this.setState({
+        //     gift_description: e.target.value,
+        //     gift_for: e.target.value,
+        //     gift_priority: e.target.value,
+        //     gift_completed: e.target.value
+        // })
+        axios.post('/gifts/update/'+this.props.match.params.id, object)
+            .then(res => res.data);
 
-        this.props.history.push('/');
+        this.props.history.push('/list');
     }
 
 
@@ -131,13 +138,13 @@ export default class EditGift extends Component {
                             <label className='form-check-label'>high</label>
                         </div>
                         <div className="form-check">
-                            <input type="checkbox"
-                            className="form-check-input"
-                            id="completedCheckbox"
-                            name="completedCheckbox"
-                            onChange={this.onChangeGiftCompleted}
-                            checked={this.state.gift_completed}
-                            value={this.state.gift_completed}
+                            <input  type="checkbox"
+                                    className="form-check-input"
+                                    id="completedCheckbox"
+                                    name="completedCheckbox"
+                                    onChange={this.onChangeGiftCompleted}
+                                    checked={this.state.gift_completed}
+                                    value={this.state.gift_completed}
                             />
                             <label className="form-check-label" htmlFor="completedCheckbox">
                                 completed

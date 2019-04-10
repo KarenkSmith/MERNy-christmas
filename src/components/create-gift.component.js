@@ -10,12 +10,13 @@ export default class CreateGift extends Component {
         this.onChangeGiftFor = this.onChangeGiftFor.bind(this);
         this.onChangeGiftPriority = this.onChangeGiftPriority.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
-
+        
         this.state = {
             gift_description: " ",
             gift_for: " ",
             gift_priority: " ",
-            gift_completed: false
+            gift_completed: false,
+            user_id: null
         }
     }
 
@@ -46,11 +47,13 @@ export default class CreateGift extends Component {
         console.log(`gift priority: ${this.state.gift_priority}`);
         console.log(`gift completed: ${this.state.gift_completed}`);
 
+        
         const newGift = {
             gift_description: this.state.gift_description,
             gift_for: this.state.gift_for,
             gift_priority: this.state.gift_priority,
-            gift_completed: this.state.gift_completed
+            gift_completed: this.state.gift_completed,
+            // user_id: this.state.user
         }
 
         axios.post('/gifts/add', newGift)
@@ -62,6 +65,8 @@ export default class CreateGift extends Component {
             gift_priority: " ",
             gift_completed: false
         })
+        this.props.history.push('/list');
+
     }
 
     render() {

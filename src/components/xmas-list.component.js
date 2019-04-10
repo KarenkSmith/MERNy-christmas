@@ -26,8 +26,9 @@ export default class XmasList extends Component {
                 this.setState({gifts: response.data});
             })
             .catch(function (error){
-                console.log(error)
+                console.log('HERE ', error)
             })
+      
     }
 
     componentDidUpdate() {
