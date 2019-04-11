@@ -5,14 +5,38 @@
   
 }
 
+th {
+  font-size: 25px;
+  color: red;
+}
+
+td {
+  font-size: 25px;
+
+}
+
+p {
+  text-align: center;
+  font-size: 40px;
+}
+
+.mern {
+  color: red;
+  font-size: 50px;
+}
+
+.btn.btn-primary {
+  background-color: red;
+  border-color: green;
+}
 
 .ticketcounter {
   padding: 40px;
  
 }
 
-.welcomenav {
-  margin-left: 260px;
+.welcomenav, .login {
+  margin-left: 440px;
   margin-top: 8px;
 }
 

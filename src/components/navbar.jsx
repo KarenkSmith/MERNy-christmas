@@ -9,7 +9,7 @@ const NavBar = (props) => {
       <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
     </div>
     :
-    <div>
+    <div class="login">
       <Link to='/login' className='NavBar-link'>LOG IN</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <Link to='/signup' className='NavBar-link'>SIGN UP</Link>

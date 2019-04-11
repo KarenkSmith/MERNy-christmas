@@ -86,7 +86,23 @@ class App extends Component {
             />
           }/>
           <Route exact path='/' render={({ history }) => 
-            <p>Twas the night before project 4 and all through General Assembly</p>
+            <p> Twas the night before Project Four, when all thro’ the school, <br></br>
+
+            Not a creature was stirring, not even a UX tool; <br></br>
+            
+            The stacks were hung on Heroku with care, <br></br>
+            
+            in hopes that dev jobs soon would be there; <br></br>
+            
+            The coders were nestled all snug in their beds, <br></br>
+            
+            While visions of MERN stacks danc’d in their heads. Blah Blah Blah <br></br>
+
+            <p class="mern"> MERNy Christmas to all, and to all a good night!
+
+
+            </p>
+            </p>
           }/>
 {/* 
           <Route path="/signup" component={SignupPage} handleSignupOrLogin={this.handleSignupOrLogin} />
