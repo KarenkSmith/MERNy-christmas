@@ -1,12 +1,19 @@
-*  {
+* {
   font-family: 'Mountains of Christmas', cursive;
   color: white;
-  // cursor: url('./christmas-tree_1f384.png'), auto;
+  cursor: url('./christmas-tree_1f384.png'), auto;
+  
 }
+
 
 .ticketcounter {
   padding: 40px;
  
+}
+
+.welcomenav {
+  margin-left: 260px;
+  margin-top: 8px;
 }
 
 .completed {

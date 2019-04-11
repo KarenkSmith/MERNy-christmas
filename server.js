@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const giftRoutes = express.Router();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 
 require('dotenv').config();
@@ -64,7 +64,7 @@ giftRoutes.route('/add').post(function(req, res){
 });
 
 giftRoutes.route('/update/:id').post(function(req, res){
-    Gift.findById(req.params.id, function(err, todo){
+    Gift.findById(req.params.id, function(err, gift){
         if (!gift)
             res.status(404).send('data not found');
         else
@@ -88,5 +88,5 @@ app.get('/*', function(req, res) {
 });
 
 app.listen(PORT, function() {
-    console.log("working on 4000")
+    console.log("working on ", PORT)
 })

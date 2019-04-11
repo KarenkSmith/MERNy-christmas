@@ -21,7 +21,6 @@ class App extends Component {
   }
 
 
-
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -43,11 +42,7 @@ class App extends Component {
     return (
 
       // <Router>
-      <div>
-
-        <canvas id="canvas" width={2040} height={1425}></canvas>
-       
-
+      <div>       
         <div className="container">
    
           <nav className="navbar navbar-expand-lg">
@@ -64,14 +59,15 @@ class App extends Component {
 
                 </li>
                 <NavBar 
-          user={this.state.user}
-          handleLogout={this.handleLogout}
-        />
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                />
               </ul>
 
             </div>
 
           </nav>
+          
 
           <Route path="/list" component={XmasList} user={this.state.user} />
           <Route path="/edit/:id" component={EditGift} />
@@ -88,6 +84,9 @@ class App extends Component {
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
+          }/>
+          <Route exact path='/' render={({ history }) => 
+            <p>Twas the night before project 4 and all through General Assembly</p>
           }/>
 {/* 
           <Route path="/signup" component={SignupPage} handleSignupOrLogin={this.handleSignupOrLogin} />

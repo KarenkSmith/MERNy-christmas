@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
+import Sound from 'react-sound';
 
 export default class CreateGift extends Component {
 
@@ -16,7 +17,8 @@ export default class CreateGift extends Component {
             gift_for: " ",
             gift_priority: " ",
             gift_completed: false,
-            user_id: null
+            user_id: null,
+
         }
     }
 
@@ -63,14 +65,23 @@ export default class CreateGift extends Component {
             gift_description: " ",
             gift_for: " ",
             gift_priority: " ",
-            gift_completed: false
+            gift_completed: false 
         })
         this.props.history.push('/list');
 
     }
 
+    playSound =()=>{
+        this.setState ({
+            playStatus: true,
+        })
+    }
+
     render() {
         return (
+         
+            
+
             <div style={{marginTop: 20}}>
                 <marquee><h3> <span> 🎁</span> Add new gift <span>💨</span></h3></marquee>
                 <form onSubmit={this.onSubmit}>
@@ -126,9 +137,14 @@ export default class CreateGift extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="add gift" className="btn btn-primary" />
+                        <input type="submit"  onClick={this.playSound} value="add gift" className="btn btn-primary" />
                     </div>
+                    <Sound
+                    url="https://www.shockwave-sound.com/sound-effects/christmas-sounds/jnglbell.wav"
+                    playStatus={Sound.status.PLAYING} 
+                />
                 </form>
+               
             </div>
         )
     }
