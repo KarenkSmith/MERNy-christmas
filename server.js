@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const giftRoutes = express.Router();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;         
 
 
 require('dotenv').config();
@@ -26,12 +26,12 @@ app.use('/gifts', giftRoutes);
 
 
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
-const connection = mongoose.connection;
+// mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+// const connection = mongoose.connection;
 
-connection.once('open', function () {
-    console.log('mongodb connection established');
-})
+// connection.once('open', function () {
+//     console.log('mongodb connection established');
+// })
 
 giftRoutes.route('/').get(function(req, res){
     Gift.find(function(err, gifts) {
