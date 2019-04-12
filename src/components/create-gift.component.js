@@ -16,8 +16,8 @@ export default class CreateGift extends Component {
             gift_description: " ",
             gift_for: " ",
             gift_priority: " ",
-            gift_completed: false,
-            user_id: null,
+            gift_completed: false
+            // user_id: null,
 
         }
     }

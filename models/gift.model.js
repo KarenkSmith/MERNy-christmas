@@ -17,8 +17,8 @@ let Gift = new Schema({
         type: Boolean
     },
     
-    user_id: 
-        {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    // user_id: 
+    //     {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     
 });
 
