@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 const mongoose = require('mongoose');
 const giftRoutes = express.Router();
 const PORT = process.env.PORT || 4000;         
@@ -14,8 +16,6 @@ require('./config/database')
 
 let Gift = require('./models/gift.model');
 
-// require('dotenv').config();
-// require('./config/database');
 console.log('DB: ', process.env.DATABASE_URL)
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,8 +23,14 @@ app.use(bodyParser.json());
 app.use('/api/users', require('./routes/api/users'));
 app.use('/gifts', giftRoutes);
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-
+// Configure both serve-favicon & static middlewares
+// to serve from the production 'build' folder
+app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 // const connection = mongoose.connection;
