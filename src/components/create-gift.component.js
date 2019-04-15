@@ -107,8 +107,8 @@ export default class CreateGift extends Component {
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityLow"
-                                    value="low"
-                                    checked={this.state.gift_priority==='low'}
+                                    value="naughty"
+                                    checked={this.state.gift_priority==='naughty'}
                                     onChange={this.onChangeGiftPriority}
                                     />
                             <label className='form-check-label'>NAUGHTY</label>
@@ -119,8 +119,8 @@ export default class CreateGift extends Component {
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityHigh"
-                                    value="high"
-                                    checked={this.state.gift_priority==='high'}
+                                    value="nice"
+                                    checked={this.state.gift_priority==='nice'}
                                     onChange={this.onChangeGiftPriority}
                                     />
                             <label className='form-check-label'>NICE</label>
