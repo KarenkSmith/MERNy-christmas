@@ -113,19 +113,9 @@ export default class EditGift extends Component {
                                     checked={this.state.gift_priority==='low'}
                                     onChange={this.onChangeGiftPriority}
                                     />
-                            <label className='form-check-label'>low</label>
+                            <label className='form-check-label'>NAUGHTY</label>
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input"
-                                    type="radio"
-                                    name="priorityOptions"
-                                    id="priorityMedium"
-                                    value="medium"
-                                    checked={this.state.gift_priority==='medium'}
-                                    onChange={this.onChangeGiftPriority}
-                                    />
-                            <label className='form-check-label'>medium</label>
-                        </div>
+                    
                         <div className="form-check form-check-inline">
                             <input className="form-check-input"
                                     type="radio"
@@ -135,7 +125,7 @@ export default class EditGift extends Component {
                                     checked={this.state.gift_priority==='high'}
                                     onChange={this.onChangeGiftPriority}
                                     />
-                            <label className='form-check-label'>high</label>
+                            <label className='form-check-label'>NICE</label>
                         </div>
                         <div className="form-check">
                             <input  type="checkbox"

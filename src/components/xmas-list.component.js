@@ -56,7 +56,7 @@ export default class XmasList extends Component {
                         <tr>
                             <th>description</th>
                             <th>for</th>
-                            <th>priority</th>
+                            <th>naughty or nice</th>
                             <th>actions</th>
                         </tr>
                     </thead>
